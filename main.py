@@ -1,3 +1,4 @@
+import sys
 import random
 
 
@@ -12,5 +13,5 @@ def roll(type):
         print("you win")
     else:
         print("you lose")
-
-roll("odd")
+def Quit():
+    sys.exit()
