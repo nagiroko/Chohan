@@ -1,16 +1,17 @@
 import sys
 import random
 
-
+global Result
+Result = str("sup")
 def Oddroll():
     dice1 = random.randint(1,6)
     dice2 = random.randint(1,6)
     result = dice2 + dice1
     print(result)
     if result % 2 == 1:
-        print("you win")
+       Result = "you win"
     else:
-        print("you lose")
+       Result = "you lose"
 
 def Evenroll():
     dice1 = random.randint(1,6)
@@ -18,8 +19,8 @@ def Evenroll():
     result = dice2 + dice1
     print(result)
     if result % 2 == 0:
-        print("you win")
+        Result = "you win"
     else:
-        print("you lose")
+        Result = "you lose"
 def Quit():
     sys.exit()
