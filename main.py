@@ -3,11 +3,13 @@ import random
 
 
 Result = str("")
+dice = str("")
 def Oddroll():
-    dice1 = random.randint(1,6)
-    dice2 = random.randint(1,6)
-    result = dice2 + dice1
-    print(result)
+    die1 = random.randint(1,6)
+    die2 = random.randint(1,6)
+    result = die2 + die1
+    global dice
+    dice = "You rolled a " + str(die1) + " and a " + str(die2)
     global Result
     if result % 2 == 1:
        Result = "you win"
@@ -15,10 +17,11 @@ def Oddroll():
        Result = "you lose"
 
 def Evenroll():
-    dice1 = random.randint(1,6)
-    dice2 = random.randint(1,6)
-    result = dice2 + dice1
-    print(result)
+    die1 = random.randint(1,6)
+    die2 = random.randint(1,6)
+    result = die2 + die1
+    global dice
+    dice = "You rolled a " + str(die1) + " and a " + str(die2)
     global Result
     if result % 2 == 0:
         Result = "you win"
