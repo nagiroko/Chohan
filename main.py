@@ -27,5 +27,8 @@ def Evenroll():
         Result = "you win"
     else:
         Result = "you lose"
+
+def Roll():
+    pass
 def Quit():
     sys.exit()
