@@ -4,9 +4,11 @@ import random
 
 Result = str("")
 dice = str("")
+die1 = 0
+die2 = 0
 def Oddroll():
-    die1 = random.randint(1,6)
-    die2 = random.randint(1,6)
+    global  die1
+    global  die2
     result = die2 + die1
     global dice
     dice = "You rolled a " + str(die1) + " and a " + str(die2)
@@ -17,8 +19,8 @@ def Oddroll():
        Result = "you lose"
 
 def Evenroll():
-    die1 = random.randint(1,6)
-    die2 = random.randint(1,6)
+    global  die1
+    global  die2
     result = die2 + die1
     global dice
     dice = "You rolled a " + str(die1) + " and a " + str(die2)
@@ -29,6 +31,10 @@ def Evenroll():
         Result = "you lose"
 
 def Roll():
-    pass
+    global  die1
+    global  die2
+    die1 = random.randint(1,6)
+    die2 = random.randint(1,6)
+    print("You rolled a " + str(die1) + " and a " + str(die2))
 def Quit():
     sys.exit()
