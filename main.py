@@ -18,6 +18,7 @@ def Oddroll():
     else:
        Result = "you lose"
 
+
 def Evenroll():
     global  die1
     global  die2
@@ -35,6 +36,10 @@ def Roll():
     global  die2
     die1 = random.randint(1,6)
     die2 = random.randint(1,6)
-    print("You rolled a " + str(die1) + " and a " + str(die2))
+
 def Quit():
     sys.exit()
+
+Roll()
+Evenroll()
+Oddroll()
