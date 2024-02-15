@@ -17,7 +17,7 @@ def Oddroll():
        Result = "you win"
     else:
        Result = "you lose"
-    print(Result)
+
 
 
 def Evenroll():
@@ -31,11 +31,15 @@ def Evenroll():
         Result = "you win"
     else:
         Result = "you lose"
-    print(Result)
+
 
 def Roll():
     global  die1
     global  die2
+    global dice
+    global Result
+    dice = ""
+    Result = ""
     die1 = random.randint(1,6)
     die2 = random.randint(1,6)
 
