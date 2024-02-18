@@ -13,7 +13,7 @@ game.geometry("700x350")
 
 
 #labels
-desc = Label(game,text="Press odd or even button to bet on outcome")
+desc = Label(game,text="Press roll to start")
 result = Label(game,text="")
 diceRolled = Label(game,text='',font=("times",30))
 
@@ -37,7 +37,7 @@ oddroll.config(state= DISABLED)
 def Results():
     from main import Result
     result.config(text=Result)
-    diceRolled.config(text="")
+    diceRolled.config(text='{}  {}'.format("\u25FB", "\u25FB"))
 
 state = 0
 def State():
@@ -46,11 +46,13 @@ def State():
         evenroll.config(state=ACTIVE)
         oddroll.config(state=ACTIVE)
         roll.config(state=DISABLED)
+        desc.config(text="Press either odd or even to bet on the dice's value")
         state = 1
     else:
         evenroll.config(state=DISABLED)
         oddroll.config(state=DISABLED)
         roll.config(state=ACTIVE)
+        desc.config(text="Press roll to play again")
         state = 0
 def diceFaces():
     from main import die1
