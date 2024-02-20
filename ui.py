@@ -5,6 +5,10 @@ from main import Oddroll
 from main import Quit
 from main import Evenroll
 from main import Roll
+import random
+from time import sleep
+
+
 
 
 game = Tk()
@@ -20,7 +24,7 @@ diceRolled = Label(game,text='',font=("times",30))
 
 #Buttons
 roll = Button(game,text= "Roll",command= lambda: [State(),Roll(),Results()])
-quit = Button(game,text= "Quit",command= Quit)
+quit = Button(game,text= "Quit",command=lambda :[tally(),Quit()])
 evenroll = Button(game,text= "EvenRoll",command= lambda: [Evenroll(),State(),Results(),diceFaces()])
 oddroll = Button(game,text= "OddRoll",command= lambda: [Oddroll(),State(),Results(),diceFaces()])
 
@@ -70,5 +74,21 @@ def diceFaces():
     dice2 = dice_dots[die2]
     diceRolled.config(text='{}  {}'.format(dice1,dice2))
 
+def tally():
+    from main import PlayerWins
+    from main import DealerWins
+    ratio = PlayerWins - DealerWins
+    if ratio >= 10:
+        desc.config(text="You smashed the dealer")
+    elif ratio > 5:
+        desc.config(text="You bested the dealer")
+    elif ratio > 0:
+        desc.config(text="You scraped a victory over the dealer")
+    elif ratio == 0:
+        desc.config(text="You left without rolling a die")
+    elif ratio >= -5:
+        desc.config(text="The dealer took your wallet")
+    else :
+        desc.config(text="The dealer took your life")
 
 game.mainloop()

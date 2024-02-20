@@ -1,5 +1,6 @@
 import sys
 import random
+from time import sleep
 
 
 Result = str("")
@@ -54,5 +55,6 @@ def Roll():
     die2 = random.randint(1,6)
 
 def Quit():
+    sleep(5)
     sys.exit()
 
