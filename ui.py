@@ -1,12 +1,9 @@
 from tkinter import *
-from tkinter import messagebox
-from tkinter import ttk
 from main import Oddroll
 from main import Quit
 from main import Evenroll
 from main import Roll
-import random
-from time import sleep
+
 
 
 
@@ -24,7 +21,7 @@ diceRolled = Label(game,text='',font=("times",30))
 
 #Buttons
 roll = Button(game,text= "Roll",command= lambda: [State(),Roll(),Results()])
-quit = Button(game,text= "Quit",command=lambda :[tally(),Quit()])
+quit = Button(game,text= "Quit",command= lambda:[tally()])
 evenroll = Button(game,text= "EvenRoll",command= lambda: [Evenroll(),State(),Results(),diceFaces()])
 oddroll = Button(game,text= "OddRoll",command= lambda: [Oddroll(),State(),Results(),diceFaces()])
 
@@ -54,6 +51,7 @@ def State():
         evenroll.config(state=ACTIVE)
         oddroll.config(state=ACTIVE)
         roll.config(state=DISABLED)
+        quit.config(state= DISABLED)
         desc.config(text="Press either odd or even to bet on the dice's value")
         total.config(text="")
         state = 1
@@ -61,6 +59,7 @@ def State():
         evenroll.config(state=DISABLED)
         oddroll.config(state=DISABLED)
         roll.config(state=ACTIVE)
+        quit.config(state=ACTIVE)
         desc.config(text="Press roll to play again")
         total.config(text = 'Player {}:{} Dealer'.format(PlayerWins,DealerWins))
         state = 0
@@ -77,6 +76,9 @@ def diceFaces():
 def tally():
     from main import PlayerWins
     from main import DealerWins
+    from main import rolled
+    roll.config(state=DISABLED)
+    quit.config(state=DISABLED)
     ratio = PlayerWins - DealerWins
     if ratio >= 10:
         desc.config(text="You smashed the dealer")
@@ -84,11 +86,14 @@ def tally():
         desc.config(text="You bested the dealer")
     elif ratio > 0:
         desc.config(text="You scraped a victory over the dealer")
-    elif ratio == 0:
+    elif ratio == 0 and rolled == False:
         desc.config(text="You left without rolling a die")
+    elif ratio == 0 and rolled == True:
+        desc.config(text="You drew with the dealer")
     elif ratio >= -5:
         desc.config(text="The dealer took your wallet")
     else :
         desc.config(text="The dealer took your life")
+    game.after(5,Quit)
 
 game.mainloop()

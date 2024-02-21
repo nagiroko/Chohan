@@ -9,11 +9,13 @@ die1 = 0
 die2 = 0
 PlayerWins = 0
 DealerWins = 0
+rolled = False
 def Oddroll():
     global  die1
     global  die2
     global PlayerWins
     global DealerWins
+    global rolled
     result = die2 + die1
     global dice
     dice = "You rolled a " + str(die1) + " and a " + str(die2)
@@ -24,6 +26,7 @@ def Oddroll():
     else:
        DealerWins += 1
        Result = "you lose"
+    rolled = True
 
 
 
@@ -32,6 +35,7 @@ def Evenroll():
     global  die2
     global PlayerWins
     global DealerWins
+    global rolled
     result = die2 + die1
     global dice
     dice = "You rolled a " + str(die1) + " and a " + str(die2)
@@ -42,6 +46,7 @@ def Evenroll():
     else:
         DealerWins += 1
         Result = "you lose"
+    rolled = True
 
 
 def Roll():
